@@ -1,0 +1,32 @@
+<section>
+  <div class="mail-indicator"></div>
+  <div class="mail">
+    <button
+      mat-icon-button
+      matBadge="{{ mailCount }}"
+      [matBadgeHidden]="isMailCountBadgeHidden"
+      matBadgeSize="medium"
+      matBadgeColor="warn"
+      (click)="resetMailCount()"
+    >
+      <mat-icon>mail_outline</mat-icon>
+    </button>
+  </div>
+  <div class="action-buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="startReceiving()"
+      [disabled]="toggleButtonsDisablity"
+    >
+      Start Receiving
+    </button>
+    <button
+      mat-raised-button
+      (click)="stopReceiving()"
+      [disabled]="!toggleButtonsDisablity"
+    >
+      Stop Receiving
+    </button>
+  </div>
+</section>

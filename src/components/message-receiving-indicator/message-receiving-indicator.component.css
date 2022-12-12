@@ -1,0 +1,30 @@
+:host {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  padding: 24px;
+  min-height: 700px;
+  height: 100vh;
+  background-color: black;
+}
+
+.action-buttons {
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  margin-bottom: 8px;;
+}
+
+.mail {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  color: white;
+}
