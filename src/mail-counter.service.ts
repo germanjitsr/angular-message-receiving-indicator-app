@@ -5,12 +5,13 @@ import { BehaviorSubject, interval, map, Observable, Subscription } from 'rxjs';
   providedIn: 'root',
 })
 export class MailCounterService {
-
   private readonly intialCountValue: number = 0;
 
   private timeInMilliseconds: number = 300;
 
-  private intervalObservable: Observable<number> = interval(this.timeInMilliseconds);
+  private intervalObservable: Observable<number> = interval(
+    this.timeInMilliseconds
+  );
 
   private counterSubscription: Subscription;
 
