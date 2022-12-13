@@ -9,7 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, MatButtonModule, MatIconModule, MatBadgeModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+  ],
   declarations: [AppComponent, MessageReceivingIndicatorComponent],
   bootstrap: [AppComponent],
 })
