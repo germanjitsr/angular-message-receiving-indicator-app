@@ -14,6 +14,8 @@ export class MessageReceivingIndicatorComponent implements OnDestroy {
 
   public toggleButtonsDisablity: boolean = false;
 
+  private resetCounterLastValue: number = 0;
+
   private subscription: Subscription = new Subscription();
 
   constructor(private readonly mailCounterService: MailCounterService) {
@@ -39,7 +41,7 @@ export class MessageReceivingIndicatorComponent implements OnDestroy {
       return;
     }
     this.mailCount = null;
-    this.mailCounterService.counterLastValue = 0;
+    this.mailCounterService.counterLastValue = this.resetCounterLastValue;
     if (this.mailCounterService.isRunning) {
       this.restart();
     }
