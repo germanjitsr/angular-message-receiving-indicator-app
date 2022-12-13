@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, interval, map, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, timer, map, Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,10 +7,13 @@ import { BehaviorSubject, interval, map, Observable, Subscription } from 'rxjs';
 export class MailCounterService {
   private readonly intialCountValue: number = 0;
 
-  private timeInMilliseconds: number = 300;
+  private readonly intervalDurationInMilliseconds: number = 300;
 
-  private intervalObservable: Observable<number> = interval(
-    this.timeInMilliseconds
+  private readonly initialTimerDelay: number = 0;
+
+  private timerObservable: Observable<number> = timer(
+    this.initialTimerDelay,
+    this.intervalDurationInMilliseconds
   );
 
   private counterSubscription: Subscription;
@@ -27,7 +30,7 @@ export class MailCounterService {
 
   public start() {
     this.isRunning = true;
-    this.counterSubscription = this.intervalObservable
+    this.counterSubscription = this.timerObservable
       .pipe(map((value): number => value + this.counterLastValue))
       .subscribe((count) => this.currentValue.next(count));
   }
